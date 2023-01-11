@@ -1,0 +1,8 @@
+1. git init
+2. git status
+3. git add README.md
+4. git status
+5. git config ~~ email, git config ~~ user name > git config --list
+6. git commit
+7. 'i' > first commit
+8. 'esc' > ':wq' 
