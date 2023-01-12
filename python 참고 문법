@@ -1,0 +1,1 @@
+행렬 선언 : arr=[[0 for _ in range(5)] for _ in range(3)] >> 3*5 행렬 선언
