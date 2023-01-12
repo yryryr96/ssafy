@@ -6,3 +6,4 @@
 6. git commit
 7. 'i' > first commit
 8. 'esc' > ':wq' 
+9. git push
