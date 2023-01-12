@@ -7,4 +7,8 @@
 7. 'i' > first commit
 8. 'esc' > ':wq' 
 9. git push
+<<<<<<< HEAD
 10. git pull 도 있슴다
+=======
+10. git pull (git에 있는 파일이 내 PC에 없을 경우)
+>>>>>>> 4f0457ef21b3041368ac09dda8c4bac5519023f4
