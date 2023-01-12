@@ -7,3 +7,4 @@
 7. 'i' > first commit
 8. 'esc' > ':wq' 
 9. git push
+10. git pull (git에 있는 파일이 내 PC에 없을 경우)
