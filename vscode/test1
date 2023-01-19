@@ -1,0 +1,10 @@
+def print_family_name(father,mother,**pets):
+    print("아버지 :", father)
+    print("어머니 :", mother)
+    if pets:
+        print("반려동물들..")
+        for species, name in pets.items():
+            print(f'{species} : {name}')
+            
+print_family_name("아부지","어무이", dog = "멍멍", cat="냥냥")
+

@@ -1,0 +1,53 @@
+# a,b=map(int,input().split())
+# a,b,c=map(int,input().split())
+# 대문자 아스키 65~90
+# 소문자 아스키 97~122
+# arr=[[0 for _ in range(5)] for _ in range(3)] >> 3*5 행렬 선언
+
+arr1 = [[0 for _ in range(3)] for _ in range(2)]
+
+
+def MAIN():
+    INPUT()
+    findUpper()
+    findLower()
+
+
+def INPUT():
+    k = 0
+    arr = list(map(str, input().split()))
+    for i in range(2):
+        for j in range(3):
+            arr1[i][j] = arr[k]
+            k += 1
+
+
+def findUpper():
+    global cnt1
+    cnt1=0
+    for i in range(2):
+        for j in range(3):
+            if (65 <= ord(arr1[i][j]) <= 90):
+                cnt1 += 1
+    print(f'대문자{cnt1}개')
+
+def findLower():
+    global cnt2
+    cnt2=0
+    for i in range(2):
+        for j in range(3):
+            if (97 <= ord(arr1[i][j]) <= 122):
+                cnt2 += 1
+    print(f'소문자{cnt2}개')
+
+
+def MAIN():
+    INPUT()
+    findUpper()
+    findLower()
+
+
+MAIN()
+
+
+
