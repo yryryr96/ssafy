@@ -1,6 +1,6 @@
 # 스택 (Stack)
 
-<img src="C:\Users\jyr49\Desktop\제목 없음.png" alt="제목 없음" style="zoom: 67%;" />
+<img src="https://blog.kakaocdn.net/dn/voG9V/btq7FiAhpID/RtWY3eZUYAuei3awqrAeV1/img.png" alt="[자료구조] 파이썬 스택(stack) 총정리 - undefined - undefined - 1. 스택이란?"  />
 
 - 스택은 위 사진처럼 같은 구조와 크기의 자료를 정해진 방향으로만 쌓을 수 있고, top으로 정한 곳을 통해서만 접근할 수 있다.
 - top은 가장 최근에 들어온 자료를 가리키며, 삽입되는 새 자료는 top 위에 쌓인다.
