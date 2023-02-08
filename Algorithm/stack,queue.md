@@ -1,6 +1,6 @@
 # 스택 (Stack)
 
-<img src="C:\Users\jyr49\Desktop\제목 없음.png" alt="제목 없음" style="zoom: 67%;" />
+<img src="https://wikidocs.net/images/page/130075/%EA%B7%B8%EB%A3%B9_5.png" alt="img" style="zoom:67%;" />
 
 - 스택은 위 사진처럼 같은 구조와 크기의 자료를 정해진 방향으로만 쌓을 수 있고, top으로 정한 곳을 통해서만 접근할 수 있다.
 - top은 가장 최근에 들어온 자료를 가리키며, 삽입되는 새 자료는 top 위에 쌓인다.
@@ -49,7 +49,7 @@ else:
 
 # 큐 (QUEUE)
 
-<img src="https://blog.kakaocdn.net/dn/Zce3U/btqBDaOfGU5/Rc2kR3Puqi3QiQa3o6CPL1/img.png" alt="img" style="zoom:67%;" />
+<img src="https://wikidocs.net/images/page/130075/%EA%B7%B8%EB%A3%B9_41.png" alt="img" style="zoom: 50%;" />
 
 - rear을 통해서 삽입, front를 통해서 삭제가 이루어짐 ( **rear -> front**  )
 - 삽입연산을 인큐(enQueue), 삭제연산을 디큐(deQueue)라 한다.
