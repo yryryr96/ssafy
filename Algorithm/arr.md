@@ -10,7 +10,7 @@ for i : 0 -> N-1
         for k in range(4) :
             ni <- i + di[k]
             nj <- j + dj[k]
-            if 0 <= < N and 0 <= nj < N # 유효한 인덱스면
+            if 0 <= < N and 0 <= nj < N :# 유효한 인덱스면
                 test(arr[ni][nj])
 ```
 ```python
