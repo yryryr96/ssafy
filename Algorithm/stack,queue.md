@@ -1,6 +1,9 @@
 # 스택 (Stack)
 
-<img src="https://blog.kakaocdn.net/dn/voG9V/btq7FiAhpID/RtWY3eZUYAuei3awqrAeV1/img.png" alt="[자료구조] 파이썬 스택(stack) 총정리 - undefined - undefined - 1. 스택이란?"  />
+
+<img src="https://wikidocs.net/images/page/130075/%EA%B7%B8%EB%A3%B9_5.png" alt="img" style="zoom:67%;" />
+
+>>>>>>> 719098f45c65dabe6dfa3879c920e81495e6c049
 
 - 스택은 위 사진처럼 같은 구조와 크기의 자료를 정해진 방향으로만 쌓을 수 있고, top으로 정한 곳을 통해서만 접근할 수 있다.
 - top은 가장 최근에 들어온 자료를 가리키며, 삽입되는 새 자료는 top 위에 쌓인다.
@@ -49,7 +52,7 @@ else:
 
 # 큐 (QUEUE)
 
-<img src="https://blog.kakaocdn.net/dn/Zce3U/btqBDaOfGU5/Rc2kR3Puqi3QiQa3o6CPL1/img.png" alt="img" style="zoom:67%;" />
+<img src="https://wikidocs.net/images/page/130075/%EA%B7%B8%EB%A3%B9_41.png" alt="img" style="zoom: 50%;" />
 
 - rear을 통해서 삽입, front를 통해서 삭제가 이루어짐 ( **rear -> front**  )
 - 삽입연산을 인큐(enQueue), 삭제연산을 디큐(deQueue)라 한다.
@@ -63,3 +66,98 @@ else:
   - 프로세스 관리
   - 너비 우선 탐색 (BFS) 구현
   - 캐시(Cache) 구현
+
+```python
+import sys
+
+q = []
+for _ in range(int(sys.stdin.readline().rstrip())):
+    command = list(sys.stdin.readline().split())
+
+    if command[0] == 'push':
+        q.append(command[1])
+
+    elif command[0] == 'pop':
+        if q:
+            a = q.pop(0)
+            print(a)
+        else :
+            print(-1)
+
+    elif command[0] == 'size' :
+        print(len(q))
+
+    elif command[0] == 'empty' :
+        if q:
+            print(0)
+        else :
+            print(1)
+
+    elif command[0] == 'front' :
+        if q:
+            print(q[0])
+        else :
+            print(-1)
+
+    elif command[0] == 'back' :
+        if q:
+            print(q[-1])
+        else :
+            print(-1)
+```
+
+
+
+# Deque (Double-ended queue)
+
+- 큐의 앞과 뒤 모두에서 삽입 및 삭제가 가능한 큐
+
+```python
+import sys
+input = sys.stdin.readline
+
+lst = []
+T = int(input())
+for tc in range(1,T+1):
+    command = list(map(str,input().split()))
+
+    if command[0] == 'push_back' :
+        lst.append(int(command[1]))
+
+    elif command[0] == 'push_front' :
+        lst.insert(0,int(command[1]))
+
+    elif command[0] == 'pop_front' :
+        if not lst:
+            print(-1)
+        else:
+            print(lst.pop(0))
+
+    elif command[0] == 'pop_back' :
+        if not lst :
+            print(-1)
+        else :
+            print(lst.pop())
+
+    elif command[0] == 'size' :
+        print(len(lst))
+
+    elif command[0] == 'empty' :
+        if lst:
+            print(0)
+        else :
+            print(1)
+
+    elif command[0] == 'front' :
+        if lst :
+            print(lst[0])
+        else :
+            print(-1)
+
+    elif command[0] == 'back' :
+        if lst :
+            print(lst[-1])
+        else :
+            print(-1)
+```
+
