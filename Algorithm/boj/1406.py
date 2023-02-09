@@ -1,39 +1,25 @@
-N = list(input())
-n = int(input())
-s = -1
-cnt = 0
-for i in range(n):
-    a = input()
+import sys
 
-    if a == 'L':
-        if s == -len(N):
+st1 = list(sys.stdin.readline().rstrip())
+st2 = []
 
-            pass
+for _ in range(int(sys.stdin.readline().rstrip())):
+    command = list(sys.stdin.readline().split())
 
-        else:
-            s -= 1
+    if command[0] =='L' :
+        if st1:
+            st2.append(st1.pop())
 
-        print(s)
+    elif command[0] == 'D':
+        if st2:
+            st1.append(st2.pop())
 
-    elif a == 'B':
-        if s == -len(N):
-            pass
-        else:
-            N.remove(N.index[s])
+    elif command[0] == 'B' :
+        if st1:
+            st1.pop()
 
-    elif a == 'D':
-        if s == -1:
-            pass
-        else:
-            s += 1
+    else :
+        st1.append(command[1])
 
-    elif a[:1] == 'P' :
-
-        if s == -len(N):
-            N.insert(s,a[-1])
-
-        else :
-            N.insert(4, a[-1])
-        print(s,a[-1],N)
-
-
+st1.extend(reversed(st2))
+print(''.join(st1))
