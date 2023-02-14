@@ -23,6 +23,9 @@ for tc in range(1,T+1):
             if c == B : # K번 내에 열의 좌표가 같아진다면 break 하고 행 좌표 변환
                 break
 
+        if score == 1:
+            continue
+
         while k < K : # 움직인 횟수가 K번 보다 작을 때
             k+=1
             if r < A :  # 망치의 행의 좌표가 A보다 작을 때
