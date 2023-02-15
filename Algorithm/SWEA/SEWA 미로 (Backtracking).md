@@ -1,7 +1,7 @@
 # SEWA 미로 (Backtracking)
 
 ```python
-# 참고한거
+# 참고해서 푼거
 point = [[1,0],[0,1],[-1,0],[0,-1]]
 found = 0
 def back(i,j):
