@@ -5,7 +5,8 @@ SUM = 0 ; MIN = 1000000
 def back(y,x):
     global SUM,MIN
     SUM += graph[y][x]
-    if SUM >= MIN: # 처음에 시간초과 떴는데 MIN 보다 SUM이 클때 바로 리턴시켜 시간을 줄여주니 pass
+    if SUM >= MIN: 
+	# 처음에 시간초과 떴는데 MIN 보다 SUM이 클때 리턴시켜 시간을 줄여주니 pass
         return
     if y == N-1 :
         if MIN > SUM :
