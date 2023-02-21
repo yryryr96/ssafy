@@ -24,6 +24,7 @@ def bfs(i,j):
                     visited[ni][nj] = visited[now[0]][now[1]] + 1
                 elif graph[ni][nj] == 1:
                     return visited[now[0]][now[1]]
+    return 0
 
 T = int(input())
 for tc in range(T):
@@ -34,10 +35,6 @@ for tc in range(T):
     visited = [[0 for _ in range(N)] for _ in range(N)]
     graph[ei][ej] = 1
 
-    ans = bfs(si,sj)
-    
-    if ans == None :
-        print(0)
-    else: print(ans)
+    bfs(si,sj)
 ````
 

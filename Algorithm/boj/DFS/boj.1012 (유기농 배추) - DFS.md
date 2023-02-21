@@ -6,16 +6,16 @@ import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
-point = [[0,1],[1,0],[-1,0],[0,-1]]
-def dfs(i,j):
-    global bug
 
+def dfs(i,j):
+	point = [[0,1],[1,0],[-1,0],[0,-1]]
     graph[i][j] = 0
     visited[i][j] = 1
 
     for di,dj in point:
         ni,nj = i+di,j+dj
         if 0<=ni<N and 0<=nj<M and visited[ni][nj] == 0 and graph[ni][nj] == 1:
+        # 그래프의 범위 내에 있으며 방문한적이 없고 이동한 그래프의 값이 1일 때
             dfs(ni,nj)
 
 T = int(input())
@@ -26,7 +26,7 @@ for tc in range(T):
     bug = 0
 
     for n in range(K):
-        b,a = map(int,input().split())
+        b,a = map(int,input().split()) # 열,행 입력
         graph[a][b] = 1
 
     for i in range(N):
