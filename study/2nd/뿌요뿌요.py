@@ -30,7 +30,7 @@ def bfs(i,j):	# 알파벳일 때 뻗어나가서 4개가 넘는다면 그 알파
 ans = 0
 while True :
     cnt = check = 0
-    ans += 1	# 연쇄가 일어난 싸이클이 몇 싸이클인지 확인
+
     for j in range(6):
         for i in range(11,-1,-1):
             cnt = 0
@@ -39,6 +39,8 @@ while True :
 
     if check == 0 :	# break 를 중간에 넣어줘야 바로 나감
         break		# 연쇄가 일어나지 않았다면 break
+    else :
+        ans += 1  # 연쇄가 일어난 싸이클이 몇 싸이클인지 확인
 
     # 정렬 : 밑에 빈칸이 있을 때 빈칸이 없을때까지 내려주는 역할
     for j in range(6):
@@ -50,5 +52,4 @@ while True :
                         Idx = k
                 graph[i][j], graph[Idx][j] = graph[Idx][j], graph[i][j]
 
-
-print(ans-1)
+print(ans)
