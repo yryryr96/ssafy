@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.readline
 N = int(input().rstrip())
 lst = list(map(int,input().split()))
-st = []
+st = [] # 인덱스를 저장
 ans = [-1]*N
 
 for i in range(N):

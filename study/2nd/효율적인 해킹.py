@@ -5,10 +5,10 @@ N,M = map(int,input().split())
 
 graph = [[] for _ in range(N+1)]
 for _ in range(M):
-    B,A = map(int,input().split())
+    B,A = map(int,input().split())  # 방향성 A에서 B로 향한다.
     graph[A].append(B)
 
-def bfs(v):
+def bfs(v): # 단방향으로 연결되어 있는 곳 탐색
     cnt = 1
     q = deque([v])
     visited = [0] * (N + 1)
