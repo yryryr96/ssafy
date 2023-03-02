@@ -27,7 +27,7 @@ back()
 ```
 
 ```python
-# 백트래킹 연습문제 (boj 15650 : N과 N(2))
+# 백트래킹 연습문제 (boj 15650 : N과 M(2))
 
 N, M = map(int,input().split())
 ans = []
