@@ -7,6 +7,7 @@ lst = []
 ans = []
 for _ in range(N):
     lst.append(input().rstrip())
+
 lst.sort(key=len)
 
 for i in range(len(lst) - 1):
