@@ -9,13 +9,13 @@ def search(i,j):
     cnt = 0
     for di,dj in point :
         ni,nj = i+di, j+dj
-        if graph[ni][nj] == 0 :
+        if graph[ni][nj] == 0 : # 0의 개수를 카운트
             cnt += 1
 
-    if cnt == 1:
+    if cnt == 1:    # 0이 1개라면 길이 1 증가
         ans += 1
 
-    elif cnt == 2:
+    elif cnt == 2:  # 0이 2개라면 길이 2 증가 > 모서리 부분
         ans += 2
 
 for _ in range(N):
