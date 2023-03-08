@@ -1,29 +1,41 @@
 import sys
 input = sys.stdin.readline
-N = int(input())
-check = [0*N for _ in range(N)]
-board = [0 for _ in range(N)]
-ans = 0
-def nqueen(row):
-    global ans
-    if row == N:
-        ans += 1
-        return
+word = list(input().rstrip())
+ans = ''
+center = []
+cnt = 0
+if len(word) == 2:
+    if word[0]!=word[1]:
+        cnt = sys.maxsize
 
-    for i in range(N):
-        if check[i] == 1:
-            continue
+for n in word:
+    if word.count(n) %2 == 1:
+        cnt += 1
+        center.append(n)
+        if cnt > 1:
+            break
 
-        board[row] = i
-        promising = True
-        for j in range(row):
-            if board[row] == board[j] or (row-j == abs(board[row] - board[j])) :
-                promising = False
-                break
 
-        if promising :
-            check[i] = 1
-            nqueen(row+1)
-            check[i] = False
-nqueen(0)
-print(ans)
+
+word.sort()
+left =''
+right=''
+for i in range(0,len(word),2):
+    left += word[i]
+for j in range(1,len(word),2):
+    right = word[j] + right
+
+
+
+if cnt > 1:
+    print("I'm Sorry Hansoo")
+else:
+    if center:
+        print(left+center[0]+right)
+    else:
+        print(left+right)
+
+
+
+
+
