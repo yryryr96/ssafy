@@ -11,7 +11,6 @@ for _ in range(T):
     while q:
         num,ans = q.popleft()
         visited[num] = 1
-        print(num,ans)
         if num == B :
             print(ans)
             break
@@ -21,10 +20,10 @@ for _ in range(T):
             visited[d_num] = 1
             q.append((d_num,ans+'D'))
 
-
         if num == 0:
-            num = 9999
-        s_num = num-1
+            s_num = 9999
+        else:
+            s_num = num - 1
 
         if visited[s_num] == 0 :
             visited[s_num] = 1
