@@ -1,25 +1,48 @@
 import sys
 input = sys.stdin.readline
 
-N = int(input())
-lst = list(map(int,input().split()))
-cnt = 1
-MAX1,MAX2 = 1,1
-for i in range(N-1):
-    if lst[i+1] - lst[i] >= 0 :
-        cnt += 1
-        if cnt >= MAX1 :
-            MAX1 = cnt
-    else :
-        cnt = 1
+n = int(input())
+visited = [0 for _ in range(n+1)]
+graph = [[] for _ in range(n+1)]
 
-cnt = 1
-for j in range(N-1):
-    if lst[j+1] - lst[j] <= 0:
-        cnt += 1
-        if cnt >= MAX2 :
-            MAX2 = cnt
-    else:
-        cnt = 1
+for i in range(1,n+1):
+    lst = list(map(int,input().split()))
+    l = lst[0]
+    for j in range(1,l+1):
+        if lst[j] not in graph[i] :
+            graph[i].append(lst[j])
+        if i not in graph[lst[j]] :
+            graph[lst[j]].append(i)
+print(graph)
+white = []
+white_check = []
+blue = []
+blue_check = []
+def dfs(v,lst,lst1):
+    global visited
+    visited[v] = 1
+    lst1.append(v)
+    for a in graph[v] :
+        if a not in lst:
+            lst.append(a)
 
-print(max(MAX1,MAX2))
+    for i in range(1,n+1):
+        if i not in white_check and visited[i] == 0 :
+            dfs(i,white_check,white)
+        if i not in blue_check and visited[i] == 0 :
+            dfs(i,blue_check,blue)
+
+        if len(blue) + len(white) == n :
+            print(white_check,blue_check)
+            print(len(white))
+            print(*white)
+            print(len(blue))
+            print(*blue)
+            print('#')
+            return
+        else:
+
+            continue
+
+dfs(1,white_check,white)
+
