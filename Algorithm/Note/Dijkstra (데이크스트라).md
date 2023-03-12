@@ -36,7 +36,7 @@ def dijkstra(start): # 단방향이고 모든 가중치가 0 이상일때만 사
         distance[i[0]] = i[1] # i[0] : 연결 노드, i[1] : 가중치
 
     for _ in range(n-1):
-        now = get_smallest_node()   # 방문하지 않고 바로 위에서 구한 연결된 노드들
+        now = get_smallest_node()   # 시작노드에서 거리가 가장 짧은 노드
         visited[now] = 1
 
         for after in graph[now] :
@@ -74,3 +74,40 @@ for i in range(1,n+1):
 
 
 
+```python
+import sys
+import heapq
+input = sys.stdin.readline
+n, m = map(int,input().split())
+start = int(input())
+INF = int(1e9)
+distance = [INF] * (n+1)
+graph = [[] for _ in range(n+1)]
+for _ in range(m):
+    a,b,c = map(int,input().split())
+    graph[a].append((b,c))
+    
+def dijkstra(start):
+    q = []
+    heapq.heappush(q,(0,start)) 
+    distance[start] = 0 
+    while q :
+        dist, node = heapq.heappop(q)
+        if distance[node] < dist:
+            continue
+        for after in graph[node]:
+            cost = distance[node] + after[1]
+            if cost < distance[after[0]]:
+                distance[after[0]] = cost
+                heapq.heappush(q,(cost,after[0]))
+
+dijkstra(start)
+
+for i in range(1, len(distance)):
+    if distance[i] == INF :
+        print("도달 불가")
+    else :
+        print(distance[i])
+```
+
+heapq 를 사용해 최소 거리를 구하는 과정과 방문처리 과정을 생략할 수 있었다.

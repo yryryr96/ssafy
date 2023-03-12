@@ -1,6 +1,6 @@
 # 트리 (Tree)
 
-![image-20230222090806002](C:\Users\SSAFY\AppData\Roaming\Typora\typora-user-images\image-20230222090806002.png)
+<img src="https://gmlwjd9405.github.io/images/data-structure-tree/tree-terms.png" alt="img" style="zoom: 50%;" />
 
 - ### 트리의 개념
 
@@ -59,24 +59,25 @@
       - 높이 3일 때 15개의 노드
     - 루트를 1번으로 하여 2^(h+1)-1 까지 정해진 위치에 대한 노드 번호를 가짐
 
-  <img src="C:\Users\SSAFY\AppData\Roaming\Typora\typora-user-images\image-20230222093157881.png" alt="image-20230222093157881" style="zoom:50%;" />
+  ![img](https://gmlwjd9405.github.io/images/data-structure-tree/Perfect-Binary-Tree.png)
 
   - #### 완전 이진 트리 (Complete Binary Tree)
 
     - 높이가 h이고 노드의 수가 n개일 때, 포화 이진 트리의 노드 번호 1번부터 n번까지 빈 자리가 없는 이진 트리
-
-  <img src="C:\Users\SSAFY\AppData\Roaming\Typora\typora-user-images\image-20230222093446088.png" alt="image-20230222093446088" style="zoom: 50%;" />
-
+    - ![img](https://gmlwjd9405.github.io/images/data-structure-tree/Complete-Binary-Tree.png)
+  
+  
+  
   - #### 편향 이진 트리 (Skewed Binary Tree)
-
+  
     - 높이 h에 대한 최소 개수의 노드를 가지면서 한쪽 방향의 자식 노드만을 가진 이진 트리
-
+  
   <img src="C:\Users\SSAFY\AppData\Roaming\Typora\typora-user-images\image-20230222093738919.png" alt="image-20230222093738919" style="zoom:50%;" />
-
+  
   - #### 순회 (traversal) - 트리의 노드들을 체계적으로 방문하는 것
-
+  
   - #### 3가지의 기본적인 순회방법
-
+  
     - 전위 순회 (preorder traversal) : VLR
       - 부모노드 방문 후, 자식 놔드를 좌,우 순서로 방문한다.
     - 중위 순회(Inorder traversal) : LVR
