@@ -1,21 +1,31 @@
-from collections import deque
-from itertools import product
 import sys
+import heapq
 input = sys.stdin.readline
 
-N = int(input())
-M = int(input())
-broken = list(map(str,input().split()))
-cnt = abs(100-N)    # 100채널에서 한칸씩 목표 채널로 가는 횟수
+n,m = map(int,input().split())
+start = 1
+INF = int(1e9)
+graph = [[] for _ in range(n+1)]
+distance = [INF for _ in range(n+1)]
+for _ in range(m):
+    a,b,c = map(int,input().split())
+    graph[a].append((b,c))
+    graph[b].append((a,c))
 
-for i in range(1000001): # 최대 한칸씩 움직일때 위아래로 50만 일수 있으니
-    temp = 1
-    for j in str(i):
-        if j in broken:
-            temp = 0
-            break
-    if temp == 1:
-        cnt = min(cnt,abs(i-N)+len(str(i)))
+def dijkstra(start):
+    q = []
+    heapq.heappush(q,(0,start))
+    distance[start] = 0
+    while q:
+        dist, node = heapq.heappop(q)
+        if distance[node] < dist :
+            continue
+        for after in graph[node] :
+            cost = distance[node] + after[1]
+            if cost < distance[after[0]] :
+                distance[after[0]] = cost
+                heapq.heappush(q,(cost,after[0]))
 
-# 이동가능한 채널로 이동하기 위해서 누른 버튼횟수와 그 채널에서 목표 타겟까지 한칸씩 움직이는 횟수
-print(cnt)
+dijkstra(start)
+print(distance[n])
+
