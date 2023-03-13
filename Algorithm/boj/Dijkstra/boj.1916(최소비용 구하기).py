@@ -23,7 +23,7 @@ def dijkstra(start):
             continue
 
         if node == end :
-            break
+            return
 
         for after in graph[node] :
             cost = distance[node] + after[1]
