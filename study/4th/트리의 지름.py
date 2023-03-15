@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
 sys.setrecursionlimit(10**9)
-# 우선 1번 노드에서 제일 먼 노드를 찾는다 > 그 노드에서 제일 먼 노드를 찾는다
+# 우선 1번 노드에서 제일 먼 노드를 찾는다 -> 그 노드에서 제일 먼 노드를 찾는다
 
 def dfs(x,y): # 시작 노드, 가중치
     for a,b in graph[x] : # a,b = 연결된 노드, 가중치

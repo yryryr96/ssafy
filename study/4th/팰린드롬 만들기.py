@@ -15,23 +15,28 @@ for n in word:
             center.append(n)
         if cnt > 1:
             break
-if center:
-    word.remove(center[0])
-
-word.sort()
-left =''
-right=''
-for i in range(len(word)):
-    if i%2 == 0:
-        left += word[i]
-    else:
-        right = word[i] + right
 
 if cnt > 1:
     print("I'm Sorry Hansoo")
 else:
     if center:
+        word.remove(center[0])
+
+    word.sort()
+    left = ''
+    right = ''
+    for i in range(len(word)):
+        if i % 2 == 0:
+            left += word[i]
+        else:
+            right = word[i] + right
+
+    if center:
         print(left+center[0]+right)
     else:
         print(left+right)
+
+
+
+
 

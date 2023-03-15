@@ -1,3 +1,4 @@
+# 다익스트라
 import sys
 import heapq
 input = sys.stdin.readline
@@ -7,7 +8,7 @@ start = 1
 INF = int(1e9)
 graph = [[] for _ in range(n+1)]
 distance = [INF for _ in range(n+1)]
-for _ in range(m):
+for _ in range(m): # 양방향 인접리스트
     a,b,c = map(int,input().split())
     graph[a].append((b,c))
     graph[b].append((a,c))
