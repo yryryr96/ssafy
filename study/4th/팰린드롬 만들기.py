@@ -3,6 +3,7 @@ input = sys.stdin.readline
 word = list(input().rstrip())
 center = []
 cnt = 0
+
 if len(word) == 2:
     if word[0]!=word[1]:
         cnt = sys.maxsize

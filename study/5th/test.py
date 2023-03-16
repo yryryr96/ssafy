@@ -1,11 +1,15 @@
 import sys
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d2fc15e418825431d35e76edf911ae593e8b81a
 input = sys.stdin.readline
 n = int(input())
 for _ in range(n):
     word = input().strip()
     start = 0
     end = len(word) - 1
+<<<<<<< HEAD
     temp = temp_s = temp_e = 0
     cnt = 0
     while start <= end:
@@ -42,3 +46,27 @@ for _ in range(n):
                 break
 
     print(temp)
+=======
+    temp = 0
+    cnt = 0
+    while start <= end :
+        if word[start] == word[end] :
+            start += 1
+            end -= 1
+
+        else :
+            temp = 1
+            cnt += 1
+            if cnt > 1 or len(word) == 2 :
+                temp = 2
+                break
+            if word[start+1] == word[end]  :
+                start += 1
+            elif word[start] == word[end-1] :
+                end -= 1
+            else :
+                temp = 2
+                break
+
+    print(temp)
+>>>>>>> 7d2fc15e418825431d35e76edf911ae593e8b81a
