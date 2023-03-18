@@ -22,8 +22,14 @@ for _ in range(n):
             temp = 1
             temp_s = start + 1
             temp_e = end - 1
+<<<<<<< HEAD
             break
 
+=======
+
+            break
+
+>>>>>>> b9e91d44c693a0db0533ae4d8834b34869ab228d
     if temp_s and temp_e :
         while temp_s <= end:
             if word[temp_s] == word[end]:

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 벽을 부쉈을 때 안부쉈을때를 나눠서 구분해줘야함
 import sys
 from collections import deque
@@ -34,3 +35,5 @@ def bfs():
     return -1
 
 print(bfs())
+=======
+>>>>>>> b9e91d44c693a0db0533ae4d8834b34869ab228d
