@@ -30,7 +30,6 @@ def bfs():
                     visited[ni][nj][check] = visited[i][j][check] + 1
                     q.append((ni,nj,check))
 
-
     return -1
 
 print(bfs())
