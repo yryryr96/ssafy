@@ -1,35 +1,35 @@
 import sys
+import heapq
 input = sys.stdin.readline
-sys.setrecursionlimit(10**6)
 
-n = int(input())
-graph = [[] for _ in range(n+1)]
+n,k = map(int,input().split())
+q = []
+heapq.heappush(q, (0, n))
+INF = int(1e9)
+graph = [[] for _ in range(100001)]
+distance = [INF for _ in range(100001)]
+distance[n] = 0
 
-#내가 EA 가 아닐때와 EA일 때 구분
-# 아닐 때 EA 수, EA일때 EA 수
-dp = [[0,1] for _ in range(n+1)]
+while q:
+    dist, node = heapq.heappop(q)
+    if distance[node] < dist:
+        continue
 
-for _ in range(n-1):
-    a,b = map(int,input().split())
-    graph[a].append(b)
-    graph[b].append(a)
+    if node == k:
+        print(distance[node])
+        break
 
-visited = [0]*(n+1)
+    for b in [node - 1, node + 1]:
+        if 0<=b<100001:
+            graph[node].append((b, 1))
 
-def dfs(start):
-    # 시작 지점은 상관 없지만 방문한 곳 다시 방문은 x
-    visited[start] = 1 # 현재 노드
+    if node*2 < 100001:
+        graph[node].append((node * 2, 0))
 
-    for child in graph[start] : # 현재 노드의 자식 child
-        if not visited[child] :
-            dfs(child)  # leaf node 까지 탐색
+    for after in graph[node]:
+        cost = distance[node] + after[1]
+        if cost < distance[after[0]]:
+            distance[after[0]] = cost
+            heapq.heappush(q, (cost, after[0]))
 
-            dp[start][0] += dp[child][1]
-            # 내가 얼리어답터가 아니면 자식은 무조건 얼리어답터여야 함
 
-            dp[start][1] += min(dp[child][0],dp[child][1])
-            # 내가 얼리어답터라면 자식이 얼리어답터든 아니든 상관없으니 그냥 작은값 더해주기
-
-dfs(1)
-
-print(min(dp[1][0],dp[1][1]))
