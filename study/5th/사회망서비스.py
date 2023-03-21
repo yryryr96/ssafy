@@ -16,18 +16,18 @@ for _ in range(n-1):
 
 visited = [0]*(n+1)
 
-def dfs(start):
+def dfs(now):
     # 시작 지점은 상관 없지만 방문한 곳 다시 방문은 x
-    visited[start] = 1 # 현재 노드
+    visited[now] = 1 # 현재 노드
 
-    for child in graph[start] : # 현재 노드의 자식 child
+    for child in graph[now] : # 현재 노드의 자식 child
         if not visited[child] :
             dfs(child)  # leaf node 까지 탐색
 
-            dp[start][0] += dp[child][1]
+            dp[now][0] += dp[child][1]
             # 내가 얼리어답터가 아니면 자식은 무조건 얼리어답터여야 함
 
-            dp[start][1] += min(dp[child][0],dp[child][1])
+            dp[now][1] += min(dp[child][0],dp[child][1])
             # 내가 얼리어답터라면 자식이 얼리어답터든 아니든 상관없으니 그냥 작은값 더해주기
 
 dfs(1)

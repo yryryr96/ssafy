@@ -5,7 +5,6 @@ from collections import deque
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-INF = int(1e9)
 graph = [input().rstrip() for _ in range(m)]
 visited = [[-1] * n for _ in range(m)]
 point = [[0, 1], [1, 0], [0, -1], [-1, 0]]
