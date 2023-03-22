@@ -27,7 +27,6 @@ for tc in range(1,n+1):
             if graph[i][j] == team :
                 search(i,j,team)
 
-
     print(f'Case {tc}:')
     for i in range(3):
         print(''.join(graph[i]))
