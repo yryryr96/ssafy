@@ -23,11 +23,10 @@ for _ in range(m):
 MIN = sys.maxsize
 def dfs(idx,cnt):
     global MIN
-    if cnt > MIN :
-        return
 
-    if move():
-        MIN = min(MIN,cnt)
+    if cnt == number :
+        if move():
+            MIN = cnt
         return MIN
 
     if cnt == 3 :
@@ -43,8 +42,10 @@ def dfs(idx,cnt):
 
 dfs(1,0)
 
-if MIN > 3 :
+for number in range(4):
+    dfs(1,number)
+    if MIN <= 3 :
+        print(MIN)
+        break
+else :
     print(-1)
-
-else:
-    print(MIN)
