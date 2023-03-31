@@ -1,29 +1,23 @@
+def dfs(i, j, cnt, number):
+    if cnt == 6:
+        ans.add(number)
+        return
+
+    for di, dj in point:
+        ni, nj = i + di, j + dj
+        if 0 <= ni < 4 and 0 <= nj < 4:
+            dfs(ni, nj, cnt + 1, number + graph[ni][nj])
+
+
 T = int(input())
-for tc in range(1,T+1):
-    ticket = list(map(int,input().split()))
-    month = [0] + list(map(int,input().split())) + [0]*3
-    MIN = int(1e9)
-    def dfs(idx, money) :
-        global MIN
-        if money > ticket[-1] :
-            return
+for tc in range(1, T + 1):
+    graph = [list(map(str, input().split())) for _ in range(4)]
+    point = [[1, 0], [0, 1], [-1, 0], [0, -1]]
+    ans = set()
 
-        if 13 < idx <=15 :
-            MIN = min(MIN,money)
-            return
+    for i in range(4):
+        for j in range(4):
+            dfs(i, j, 0, graph[i][j])
 
-        if idx == 13 :
-            MIN = min(MIN,money)
-            return
-        if month[idx+1] :
-            dfs(idx+1,money+ticket[0]*month[idx+1])
-            dfs(idx+1,money+ticket[1])
-        else:
-            dfs(idx+1,money)
-
-        dfs(idx+3,money+ticket[2])
-
-    dfs(0,0)
-    if MIN > ticket[-1] :
-        MIN = ticket[-1]
-    print(f'#{tc} {MIN}')
+    ans = len(ans)
+    print(f'#{tc} {ans}')
