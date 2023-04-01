@@ -1,3 +1,5 @@
+# 코스트값에 따른 최대 메모리 
+# 메모리에 따른 최소 코스트 값 -> 메모리 초과
 import sys
 input = sys.stdin.readline
 
