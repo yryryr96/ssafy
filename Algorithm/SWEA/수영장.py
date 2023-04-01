@@ -1,20 +1,17 @@
 T = int(input())
 for tc in range(1,T+1):
     ticket = list(map(int,input().split()))
-    month = [0] + list(map(int,input().split())) + [0]*3
+    month = [0] + list(map(int,input().split()))
     MIN = int(1e9)
     def dfs(idx, money) :
         global MIN
         if money > ticket[-1] :
             return
 
-        if 13 < idx <=15 :
-            MIN = min(MIN,money)
+        if idx > 12 :
+            MIN = min(money,MIN)
             return
 
-        if idx == 13 :
-            MIN = min(MIN,money)
-            return
         if month[idx+1] :
             dfs(idx+1,money+ticket[0]*month[idx+1])
             dfs(idx+1,money+ticket[1])
