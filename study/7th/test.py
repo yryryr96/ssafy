@@ -1,25 +1,24 @@
 import sys
 input = sys.stdin.readline
 
-n,m = map(int,input().split())
-memory = list(map(int,input().split()))
-charge = list(map(int,input().split()))
-lst = [(0,0)]
+n = int(input())
+lst = list(map(int,input().split()))
+dp = [1]*(n)
+
 for i in range(n):
-    lst.append((memory[i],charge[i]))
+    for j in range(i):
+        if lst[i] > lst[j] :
+            dp[i] = max(dp[i],dp[j]+1)
 
-graph = [[0]*(sum(charge)+1) for _ in range(n+1)]
-ans = sys.maxsize
-for i in range(1,n+1):
-    M = lst[i][0]
-    C = lst[i][1]
-    for j in range(1,sum(charge)+1):
-        if C > j :
-            graph[i][j] = graph[i-1][j]
-        else :
-            graph[i][j] = max(graph[i-1][j], graph[i-1][j-C] + M )
+print(max(dp))
 
-        if graph[i][j] >= m :
-            ans = min(ans,j)
+MAX = max(dp)
+MAX_idx = dp.index(MAX)
+lis = []
+while MAX_idx >= 0 :
+    if dp[MAX_idx] == MAX :
+        lis.append(lst[MAX_idx])
+        MAX -= 1
+    MAX_idx -= 1
+print(*list(reversed(lis)))
 
-print(ans)
