@@ -1,24 +1,8 @@
-import sys
-input = sys.stdin.readline
+T = int(input())
 
-n = int(input())
-lst = list(map(int,input().split()))
-dp = [1]*(n)
-
-for i in range(n):
-    for j in range(i):
-        if lst[i] > lst[j] :
-            dp[i] = max(dp[i],dp[j]+1)
-
-print(max(dp))
-
-MAX = max(dp)
-MAX_idx = dp.index(MAX)
-lis = []
-while MAX_idx >= 0 :
-    if dp[MAX_idx] == MAX :
-        lis.append(lst[MAX_idx])
-        MAX -= 1
-    MAX_idx -= 1
-print(*list(reversed(lis)))
-
+for tc in range(1,T+1):
+    n, number = input().split()
+    number = bin(int(number,16))[2:]
+    if len(number)%4 != 0 :
+        number = '0'*(4-len(number)%4) + number
+    print(f'#{tc} {number}')
