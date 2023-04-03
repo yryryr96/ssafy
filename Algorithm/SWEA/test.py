@@ -1,22 +1,28 @@
+def find(x):
+    if parent[x] != x :
+        parent[x] = find(parent[x])
+    return parent[x]
+
+def union(a,b) :
+    a = find(a)
+    b = find(b)
+    parent[max(a,b)] = min(a,b)
+
 T = int(input())
 for tc in range(1,T+1):
-    ticket = list(map(int,input().split()))
-    month = [0] + list(map(int,input().split()))
-    MIN = int(1e9)
-    def dfs(idx, money) :
-        global MIN
-        if money > ticket[-1] :
-            return
+    v,e = map(int,input().split())
+    parent = list(range(v+1))
+    edges = []
+    for _ in range(e):
+        a,b,c = map(int,input().split())
+        edges.append((c,a,b))
 
-        if idx > 12 :
-            MIN = min(money,MIN)
-            return
+    edges.sort()
+    ans = 0
+    for i in range(e):
+        c,a,b = edges[i]
+        if find(a) != find(b) :
+            union(a,b)
+            ans += c
 
-        dfs(idx+1,money+ticket[0]*month[idx])
-        dfs(idx+1,money+ticket[1])
-        dfs(idx+3,money+ticket[2])
-
-    dfs(0,0)
-    if MIN > ticket[-1] :
-        MIN = ticket[-1]
-    print(f'#{tc} {MIN}')
+    print(f'#{tc} {ans}')
