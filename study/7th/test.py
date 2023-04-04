@@ -1,30 +1,26 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
+tc = 1
+while True :
 
-def find(x):
-    if parent[x] != x :
-        parent[x] = find(parent[x])
-    return parent[x]
-
-def union(a,b):
-    a = find(a)
-    b = find(b)
-    parent[max(a,b)] = min(a,b)
-
-n,m = map(int,input().split())
-parent = list(range(n+1))
-edges = []
-for _ in range(m):
-    a,b,c = map(int,input().split())
-    edges.append((c,a,b))
-edges.sort()
-ans = 0
-MAX = 0
-for i in range(m):
-    cost,a,b = edges[i]
-    if find(a) != find(b):
-       union(a,b)
-       ans += cost
-       MAX = max(MAX,cost)
-
-print(ans-MAX)
+    n = int(input())
+    if n == 0 :
+        break
+    INF = int(1e9)
+    visited = [[INF]*n for _ in range(n)]
+    graph = [list(map(int,input().split())) for _ in range(n)]
+    point = [[0,1],[1,0],[-1,0],[0,-1]]
+    q = deque()
+    visited[0][0] = graph[0][0]
+    q.append((0,0))
+    while q:
+        now = q.popleft()
+        for di,dj in point :
+            ni,nj = now[0] + di, now[1]+dj
+            if 0<=ni<n and 0<=nj<n :
+                if graph[ni][nj] + visited[now[0]][now[1]] < visited[ni][nj] :
+                    q.append((ni,nj))
+                    visited[ni][nj] = graph[ni][nj] + visited[now[0]][now[1]]
+    print(f'Problem {tc}: {visited[n - 1][n - 1]}')
+    tc += 1

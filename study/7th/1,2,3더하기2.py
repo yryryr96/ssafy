@@ -4,7 +4,6 @@ input = sys.stdin.readline
 n,k = map(int,input().split())
 lst = [1,2,3]
 cnt = 0
-temp = 0
 ans = '-1'
 
 def dfs(v,word):

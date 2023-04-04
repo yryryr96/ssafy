@@ -8,7 +8,7 @@ def floyd():
     for k in range(n):
         for i in range(n):
             for j in range(n):
-                if i == j: continue # 자신으로 돌아오는 거 제외
+                if i == j: continue # 자신으로 돌아오는 것 제외
                 if graph[i][j] == 'Y' or (graph[i][k] == 'Y' and graph[k][j] == 'Y') :
                     visited[i][j] = 1
 
