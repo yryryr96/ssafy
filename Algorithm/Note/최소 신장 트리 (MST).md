@@ -34,3 +34,5 @@ for i in range(e):
         total_cost += c
 print(total_cost)
 ```
+
+- 모든 점을 연결하고 가중치가 최소인 싸이클이 없는 그래프

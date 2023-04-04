@@ -1,28 +1,17 @@
-def find(x):
-    if parent[x] != x :
-        parent[x] = find(parent[x])
-    return parent[x]
+import sys
+input = sys.stdin.readline
 
-def union(a,b) :
-    a = find(a)
-    b = find(b)
-    parent[max(a,b)] = min(a,b)
+n = int(input())
+graph = [list(map(int,input().split())) for _ in range(n)]
+temp = [[0]*n for _ in range(n)]
+def dfs(v):
 
-T = int(input())
-for tc in range(1,T+1):
-    v,e = map(int,input().split())
-    parent = list(range(v+1))
-    edges = []
-    for _ in range(e):
-        a,b,c = map(int,input().split())
-        edges.append((c,a,b))
+    for j in range(n):
+        if graph[v][j] == 1 :
+            if temp[v][j] == 0 :
+                temp[v][j] = 1
+                dfs(j)
 
-    edges.sort()
-    ans = 0
-    for i in range(e):
-        c,a,b = edges[i]
-        if find(a) != find(b) :
-            union(a,b)
-            ans += c
-
-    print(f'#{tc} {ans}')
+for i in range(n):
+    dfs(i)
+print(temp)
