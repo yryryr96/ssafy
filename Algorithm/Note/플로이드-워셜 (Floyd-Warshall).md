@@ -34,5 +34,3 @@ for i in range(1,n+1):
 ```
 
 ![img](https://blog.kakaocdn.net/dn/1Vjwv/btrfRDJ3ecJ/Bjx8iypwFpY74b5OmAqdsK/img.png)
-
-![image-20230331141415761](C:\Users\SSAFY\AppData\Roaming\Typora\typora-user-images\image-20230331141415761.png)
