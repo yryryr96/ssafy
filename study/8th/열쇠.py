@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 def find_enter():
     global ans
-    for i in [0,n-1] :
+    for i in [0,n-1] :  # 첫 행, 마지막 행
         for j in range(m):
             a = graph[i][j]
             if a.isalpha():
@@ -20,7 +20,7 @@ def find_enter():
                 enter.add((i,j))
                 graph[i][j] = '.'
 
-    for j in [0,m-1] :
+    for j in [0,m-1] : # 첫 열, 마지막 열
         for i in range(n):
             a = graph[i][j]
             if a.isalpha():
