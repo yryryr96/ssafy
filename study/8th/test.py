@@ -1,32 +1,42 @@
 import sys
-from collections import deque , defaultdict
 input = sys.stdin.readline
 
+def find(x):
+    if parent[x] != x :
+        parent[x] = find(parent[x])
+    return parent[x]
+
+def union(a,b):
+    a = find(a)
+    b = find(b)
+    if a in Trueman or b in Trueman :
+        parent[a] = parent[b] = l
+    else:
+        parent[max(a,b)] = min(a,b)
+
 n,m = map(int,input().split())
-dic = defaultdict()
-
-for _ in range(n):
-    a,b = map(int,input().split())
-    dic[a] = b
-
+parent = list(range(n+1))
+Trueman = list(map(int,input().split()))
+t = Trueman[0]
+if t == 0 :
+    print(m)
+    exit()
+Trueman = Trueman[1:]
+l = min(Trueman)
+ans = 0
+parties = []
 for _ in range(m):
-    a,b = map(int,input().split())
-    dic[a] = b
+    party = list(map(int,input().split()))[1:]
+    parties.append(party)
 
-visited = [0]*101
-q = deque()
-q.append(1)
+    for i in range(len(party)-1):
+        union(party[i],party[i+1])
 
-while q:
-    now = q.popleft()
-    if now == 100 :
-        print(visited[100])
-        break
-    if dic.get(now,0) != 0 :
-        visited[dic[now]] = visited[now]
-        now = dic[now]
+for party in parties:
+    for i in range(len(party)):
+        if find(party[i]) in Trueman :
+            break
+    else:
+        ans += 1
 
-    for i in [now+1,now+2,now+3,now+4,now+5,now+6] :
-        if i <= 100 and visited[i] == 0 :
-            visited[i] = visited[now] + 1
-            q.append(i)
+print(ans)

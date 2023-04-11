@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 def find_enter():
     global ans
-    for i in [0,n-1] :  # 첫 행, 마지막 행
+    for i in [0,n-1] :
         for j in range(m):
             a = graph[i][j]
             if a.isalpha():
@@ -20,7 +20,7 @@ def find_enter():
                 enter.add((i,j))
                 graph[i][j] = '.'
 
-    for j in [0,m-1] : # 첫 열, 마지막 열
+    for j in [0,m-1] :
         for i in range(n):
             a = graph[i][j]
             if a.isalpha():
@@ -43,6 +43,7 @@ def bfs():
 
     while q :
         now = q.popleft()
+
         for di,dj in point :
             ni,nj = now[0] + di, now[1] + dj
             if 0<=ni<n and 0<=nj<m and visited[ni][nj] == 0 :
@@ -52,15 +53,17 @@ def bfs():
                     ans += 1
                     graph[ni][nj] = '.'
                     q.append((ni,nj))
-                elif g.isalpha(): # 알파벳일 때
-                    if g.isupper() and g.lower() in KEY : # 대문자의 소문자가 KEY에 있을 때
+                elif g.isalpha():
+                    if g.isupper() and g.lower() in KEY :
                         q.append((ni,nj))
-                    elif g.islower(): # 소문자라면 키에 넣기
+                    elif g.islower():
                         KEY.add(g)
                         q.append((ni,nj))
 
-                elif g == '.': # .이면 지나가기
+                elif g == '.':
                     q.append((ni,nj))
+                else:
+                    continue
 
 T = int(input())
 for tc in range(T):
@@ -76,9 +79,7 @@ for tc in range(T):
         find_enter()
         bfs()
         temp = len(KEY) + ans
-        if temp == check : # key의 갯수와 답의 갯수가 바뀌지 않으면 더이상 갈 곳이 없으니 종료
+        if temp == check :
             break
         check = temp
-
-
     print(ans)
