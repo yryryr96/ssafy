@@ -35,7 +35,7 @@ for i in range(m):
 # 전체적인 흐름
 # 각 인덱스값을 원소로 가지는 n개의 집합이 있다
 # find 함수는 그 인덱스의 부모 노드를 찾는 함수이다.
-# union 함수는 두개의 인자를 받아 find함수를 통해 각 인자의 부모를 찾고 더 큰 부모쪽으로 작은 쪽을 합쳐주는 함수이다.
+# union 함수는 두개의 인자를 받아 find함수를 통해 각 인자의 부모를 찾고 더 큰 부모쪽으로 작은 쪽을 합쳐주는 함수이다. 합치는 조건은 쓰기 나름
 ```
 
 <img src="https://blog.kakaocdn.net/dn/1IkpF/btrX2qAyKOP/0PAwWPzhvRIfT48vMbQmd0/img.png" alt="img" style="zoom: 33%;" />

@@ -93,7 +93,7 @@ def dijkstra(start):
     distance[start] = 0 
     while q :
         dist, node = heapq.heappop(q)
-        if distance[node] < dist:
+        if distance[node] < dist: # = 을 붙이게되면 시작 노드일때 continue
             continue
         for after in graph[node]:
             cost = distance[node] + after[1]
