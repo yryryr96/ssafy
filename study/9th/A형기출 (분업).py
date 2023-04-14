@@ -35,5 +35,3 @@ if len(ans) == n :
     print(sum(Time)-max(Time)//2)
 else :
     print(-1)
-
-
