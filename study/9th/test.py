@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import sys,math
 input = sys.stdin.readline
 
@@ -29,4 +28,3 @@ for i in range(n):
         temp = MAX
 
 print(ans)
->>>>>>> 6a3a77797725b78590d215de935a4e2576b4b783
