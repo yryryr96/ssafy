@@ -39,7 +39,7 @@ def dist(i,j,v):    # 섬 간 거리 구하기
                     break
 
                 if graph[ni][nj] == v :
-                    break;
+                    break
 
                 distance += 1
                 ni+=di
