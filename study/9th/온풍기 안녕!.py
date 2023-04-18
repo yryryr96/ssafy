@@ -5,7 +5,6 @@ R,C,K = map(int,input().split())
 graph = [list(map(int,input().split())) for _ in range(R)]
 W = int(input())
 
-wall = []
 wall_v = []
 for _ in range(W):  # 벽
     a,b,t = map(int,input().split())
@@ -183,7 +182,6 @@ while True:
             up(i-1,j,5)
         elif t == 4:
             down(i+1,j,5)
-
 
     temp = [[0] * C for _ in range(R)]
     control(temp)

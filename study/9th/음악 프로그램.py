@@ -12,7 +12,7 @@ for _ in range(m):
     for i in range(1,k):
         graph[lst[i]].append(lst[i+1])
         Indegree[lst[i+1]] += 1
-print(graph)
+
 q = deque()
 for i in range(1,n+1):
     if Indegree[i] == 0 :
