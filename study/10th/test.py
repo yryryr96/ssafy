@@ -1,28 +1,83 @@
-import sys
+import sys,copy
 input = sys.stdin.readline
 
-r,c = map(int,input().split())
-graph = [list(input().rstrip()) for _ in range(r)]
-point = [[1,0],[0,1],[-1,0],[0,-1]]
-visited_alpha = [0]*26
+n = int(input())
+graph = [list(map(int,input().split())) for _ in range(n)]
+point = [[0,1],[1,0],[-1,0],[0,-1]]
 MAX = 0
-def dfs(i,j,cnt) :
+# 각 방향별 끝으로 이동
+def dfs(map,dir,cnt):
     global MAX
-    if MAX == 26 :
+    temp = copy.deepcopy(map)
+    if cnt == 6 :
+        for i in range(n):
+            for j in range(n):
+                if temp[i][j] > MAX :
+                    MAX = temp[i][j]
+
         return
 
-    if cnt > MAX :
-        MAX = cnt
+    visited = [[0]*n for _ in range(n)]
+    if dir == 2 or dir == 3:
+        for i in range(n):
+            for j in range(n):
+                if temp[i][j] != 0 :
+                    k = temp[i][j]
+                    ni,nj = i+point[dir][0],j+point[dir][1]
+                    ki,kj = i,j
+                    while 0<=ni<n and 0<=nj<n :
 
-    for di,dj in point :
-        ni,nj = i+di, j+dj
-        if 0<=ni<r and 0<=nj<c and visited_alpha[ord(graph[ni][nj])-65] == 0:
-            visited_alpha[ord(graph[ni][nj])-65] = 1
-            dfs(ni,nj,cnt+1)
-            visited_alpha[ord(graph[ni][nj]) - 65] = 0
+                        if temp[ni][nj] == k and visited[ni][nj] == 0:
+                            temp[i][j] = 0
+                            temp[ni][nj] = 2*k
+                            visited[ni][nj] = 1
+                            break
 
+                        elif (temp[ni][nj] != 0 and temp[ni][nj] != k) or visited[ni][nj] == 1 :
+                            temp[i][j] = 0
+                            temp[ki][kj] = k
+                            break
+
+                        ki, kj = ni, nj
+                        ni+=point[dir][0]
+                        nj+=point[dir][1]
+                    else :
+                        temp[i][j] = 0
+                        temp[ki][kj] = k
+
+    elif dir == 0 or dir == 1 :
+        for i in range(n-1,-1,-1) :
+            for j in range(n-1,-1,-1):
+                if temp[i][j] != 0 :
+                    k = temp[i][j]
+                    ni, nj = i + point[dir][0], j + point[dir][1]
+                    ki, kj = i, j
+                    while 0 <= ni < n and 0 <= nj < n:
+
+                        if temp[ni][nj] == k and visited[ni][nj] == 0:
+                            temp[i][j] = 0
+                            temp[ni][nj] = 2 * k
+                            visited[ni][nj] = 1
+                            break
+
+                        elif (temp[ni][nj] != 0 and temp[ni][nj] != k) or visited[ni][nj] == 1:
+                            temp[i][j] = 0
+                            temp[ki][kj] = k
+                            break
+
+                        ki, kj = ni, nj
+                        ni += point[dir][0]
+                        nj += point[dir][1]
+                    else:
+                        temp[i][j] = 0
+                        temp[ki][kj] = k
+
+
+    for i in range(4):
+        dfs(temp,i,cnt+1)
     return
 
-visited_alpha[ord(graph[0][0])-65] = 1
-dfs(0,0,1)
+lst = graph
+for i in range(4):
+    dfs(lst,i,1)
 print(MAX)
