@@ -1,24 +1,35 @@
-import sys
+import sys,heapq
 input = sys.stdin.readline
 
 T = int(input())
-for tc in range(T) :
-    ability = [list(map(int,input().split())) for _ in range(11)]
-    position = [0]*11
-    MAX = 0
-    def dfs(i,p):
-        global MAX
-        if i == 11 :
-            if MAX < sum(p) :
-                MAX = sum(p)
-            return
+for _ in range(T):
+    k = int(input())
+    q1 = []
+    q2 = []
+    cnt = 0
+    for _ in range(k):
+        command,num = input().rstrip().split()
+        num = int(num)
 
-        for k in range(11) :
-            if p[k] == 0 and ability[i][k] != 0:
-                p[k] = ability[i][k]
-                dfs(i+1,p)
-                p[k] = 0
+        if command == 'I' :
+            cnt += 1
+            heapq.heappush(q1,num)
+            heapq.heappush(q2,-num)
 
-    dfs(0,position)
-    print(MAX)
+        if command == 'D' :
+            if cnt and num == -1 :
+                q2.remove(-heapq.heappop(q1))
+                heapq.heapify(q2)
+                cnt -= 1
+            elif cnt and num == 1 :
+                q1.remove(-heapq.heappop(q2))
+                heapq.heapify(q1)
 
+                cnt -= 1
+            else :
+                continue
+
+    if cnt == 0 :
+        print('EMPTY')
+    else :
+        print(-heapq.heappop(q2), heapq.heappop(q1))
