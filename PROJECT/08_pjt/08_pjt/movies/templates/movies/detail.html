@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>제목 : {{movie.title}}</p>
+    <p>개봉 : {{movie.release_date}}</p>
+    <p>popularity : {{movie.popularity}}</p>
+    <p>투표 : {{movie.vote_count}}</p>
+    <p>평점 : {{movie.vote_average}}</p>
+    <p>줄거리 : {{movie.overview}}</p>
+    <p>장르 :
+    {% for genre in genres %}
+        {{genre.name}}
+    {% endfor %}
+    <p><a href="{% url 'movies:recommended' %}">비슷한 장르의 영화 추천</a></p>
+    </p>
+    <img src="{{movie.poster_path}}" alt="">
+{% endblock %}

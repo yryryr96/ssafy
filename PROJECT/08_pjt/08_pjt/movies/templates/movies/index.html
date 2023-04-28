@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Movies</h1>
+  <hr>
+  {% for movie in movies %}
+    <a href="{% url 'movies:detail' movie.pk %}">{{movie.title}}</a>
+    <p>평점 : 
+            {% if movie.vote_average > 8.7 %}
+            ★★★★★
+            {% elif movie.vote_average > 8.5 %}
+            ★★★★
+            {% elif movie.vote_average > 8.2 %}
+            ★★★
+            {% else %}
+            ★★
+            {% endif %}
+    </p>
+    <hr>
+  {% endfor %}
+{% endblock %}

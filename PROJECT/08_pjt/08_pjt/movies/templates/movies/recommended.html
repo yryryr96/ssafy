@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+        {% for movie in recommended_movies %}
+        <div>
+            <p style="text-align: center;"><a href="{% url 'movies:detail' movie.pk %}">{{movie.title}}</a></p>
+            {% if movie.vote_average > 8.7 %}
+            <p style="text-align: center;">★★★★★</p>
+            {% elif movie.vote_average > 8.5 %}
+            <p style="text-align: center;">★★★★</p>
+            {% elif movie.vote_average > 8.2 %}
+            <p style="text-align: center;">★★★</p>
+            {% endif %}
+            <p style="text-align: center;"><img src="{{movie.poster_path}}" alt=""></p>
+            <br>
+            <p>{{movie.overview}}</p>
+            <hr>
+        </div>
+        {% endfor %}
+
+{% endblock content %}
