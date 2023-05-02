@@ -23,7 +23,6 @@ def dfs(i,j):
 
             elif graph[ni][nj] == 'T' :
                 break
-
             ni+=di
             nj+=dj
 
