@@ -11,9 +11,9 @@ for _ in range(m):
     p, r, c, t = map(int, sys.stdin.readline().split())
     graph[p].append((r, t, c))
     graph[r].append((p, t, c))
-    # max_cost = max(max_cost, n*c)   # 최대 비용
-    # min_time = max(min_time, n*t)   # 최대 시간
-max_cost = min_time = 10000;
+    max_cost = max(max_cost, n*c)   # 최대 비용
+    min_time = max(min_time, n*t)   # 최대 시간
+# 최대 노드 100개 , 비용, 시간 최대 100 이므로 최대 비용 = 최대 시간 = 10000 으로 설정하고 해도 상관 없다.
 times = [[INF] * (n+1) for _ in range(max_cost+1)]
 # times[i][j] : i 비용으로 j 노드까지 times[i][j] 시간이 걸린다
 def dijk():
