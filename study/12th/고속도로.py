@@ -17,7 +17,6 @@ for _ in range(m):
 times = [[INF] * (n+1) for _ in range(max_cost+1)]
 # times[i][j] : i 비용으로 j 노드까지 times[i][j] 시간이 걸린다
 def dijk():
-
     times[0][s] = 0
     heapq.heappush(pq, (0, 0, s))
     while pq:
@@ -36,7 +35,6 @@ def dijk():
 dijk()
 # print(graph)
 ans = 0
-# min_time = max_cost 이게 왜 되는거지?
 for i in range(max_cost + 1):
     if times[i][e] != INF and times[i][e] < min_time:
         ans += 1

@@ -2,14 +2,6 @@ import sys
 input = sys.stdin.readline
 
 N,K,D = map(int,input().split())
-lst = [[] for _ in range(N+1)]
-for i in range(1,N+1):
-    M,d = map(int,input().split())
-    algo = list(map(int,input().split()))
-    lst[i].append((d,algo))
-
-lst.sort(reverse=True)
-print(lst)
 students = []
 algorithm = [0]*(K+1)
 for _ in range(N):
@@ -22,7 +14,6 @@ students.sort()
 # print(students)
 start,end,E = 0,0,0
 while start < N :
-    # print(end,E)
     while end < N and students[end][0] - students[start][0] <= D :
         for i in students[end][1] :
             algorithm[i] += 1
@@ -34,7 +25,7 @@ while start < N :
             total += 1
             if algorithm[i] == end - start :
                 every += 1
-    # print((total - every) * (end-start))
+
     E = max(E,(total - every) * (end-start))
     for i in students[start][1]:
         algorithm[i] -= 1
