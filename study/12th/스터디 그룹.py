@@ -2,7 +2,6 @@ import sys
 input = sys.stdin.readline
 
 N,K,D = map(int,input().split())
-<<<<<<< HEAD
 lst = [[] for _ in range(N+1)]
 for i in range(1,N+1):
     M,d = map(int,input().split())
@@ -11,7 +10,6 @@ for i in range(1,N+1):
 
 lst.sort(reverse=True)
 print(lst)
-=======
 students = []
 algorithm = [0]*(K+1)
 for _ in range(N):
@@ -43,6 +41,3 @@ while start < N :
     start += 1
 
 print(E)
-
-
->>>>>>> 2975912e18f25d94ba1875af21be609c1a7d3e43
