@@ -16,7 +16,6 @@ for x,y in line :
         start = x
         end = y
 
-
     elif x >= start and y >= end :
         end = y
 
